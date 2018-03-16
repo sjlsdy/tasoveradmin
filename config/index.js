@@ -10,7 +10,15 @@ module.exports = {
     // Paths
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    proxyTable: {},
+    proxyTable: {
+		'/www': {
+			target: 'http://raspberry.favourwe.com:7778',
+			changeOrigin: true,
+			pathRewrite: {
+				'^/www': '/www'
+			}
+		},
+	},
 
     // Various Dev Server settings
     host: 'localhost', // can be overwritten by process.env.HOST
